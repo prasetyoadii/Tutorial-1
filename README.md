@@ -43,7 +43,7 @@
         }
     }
     ```
-    Atribut productId, productName, dan productQuantity dinyatakan sebagai privat (private), mengikuti prinsip penyembunyian informasi. Hal ini mencegah akses langsung dari luar kelas dan mendorong penggunaan metode (getter dan setter) untuk berinteraksi dengan atribut tersebut.
+    Atribut productId, productName, dan productQuantity dinyatakan sebagai private. Hal ini mencegah akses langsung dari luar kelas dan dapat diubah dengan menggunakan setter dan getter untuk berinteraksi dengan atribut tersebut.
   * Error Handling<br>
     Error handling dalam clean code digunakan untuk memastikan bahwa program dapat mengatasi kesalahan atau situasi tidak terduga. Contoh:
     ```
