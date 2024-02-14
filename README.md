@@ -3,7 +3,8 @@
 **2206830246**</br>
 **ProLan A / DEE**</br>
 
-## Exercise 1
+## Tutorial 1
+### Exercise 1
 - **Implementasi Clean Code Principles**
   * Meaningfull Name </br>
     Setiap penamaan variabel dan fungsi dalam kode jelas dan ringkas sehingga mudah dipahami. Contoh:
@@ -88,3 +89,24 @@
     Inheritance berguna untuk mengatasi duplikasi kode karena memungkinkan kelas anak untuk mewarisi sifat kelas induk. Dengan menggunakan inheritance, kode yang sama atau serupa dapat ditempatkan di kelas induk, dan kelas anak dapat mewarisi fungsionalitas tersebut tanpa perlu menduplikasi kode.
     * Review and Refactoring: <br>
     Dalam proses review kode, tim pengembang mengidentifikasi dan mengatasi redundansi serta duplikasi kode fungsional test melalui diskusi dan pengamatan bersama. Review membantu mengenali potensi duplikasi. Selain itu, refactoring digunakan untuk membuat abstraksi yang lebih baik, mengurangi duplikasi tanpa mengorbankan fungsionalitas, dan memfasilitasi penempatan kode terduplikasi di lokasi yang sesuai, meningkatkan kebersihan dan konsistensi dalam pemeliharaan kode.
+
+## Tutorial 2
+[Link Website](https://eshop-prasetyoadii.koyeb.app/)
+
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-orange.svg)](https://sonarcloud.io/summary/new_code?id=prasetyoadii_Tutorial-1)
+
+#### Reflection
+
+1. Saya Isu-isu yang saya perbaiki:
+   - Isu tabel tidak memiliki deskripsi<br>
+    Menambahkan elemen ```<caption>``` ke dalam HTML
+   - Field Injection
+    Pada kelas ProductCotroller dan Product service ubah field injection menjadi constructor injection
+
+2. Implementasi saat ini telah berhasil memenuhi konsep CI/CD dengan menggunakan GitHub Workflows. Setiap kali ada perubahan di-push atau di-pull request ke repository GitHub, alur kerja otomatis diaktifkan. Proses ini mencakup uji kode menggunakan test case dalam ci.yml, analisis kode oleh OSSF Scorecard menggunakan scorecard.yml, dan pemeriksaan kode menggunakan SonarCloud melalui sonarcloud.yml. Jika semua tahap uji dan analisis berhasil, perubahan kode akan digabungkan ke branch utama "main". Selanjutnya, terdapat langkah otomatis untuk melakukan deployment ke platform as a service (PaaS) Koyeb. Seiring dengan itu, terdapat pemeriksaan keamanan kode dengan menggunakan scorecard.yml. Dengan demikian, implementasi ini membentuk alur kerja otomatis yang menyelaraskan siklus pengembangan perangkat lunak (Software Development Life Cycle) secara lengkap, termasuk Continuous Integration dan Continuous Deployment.
+
+
+
+
+
+
