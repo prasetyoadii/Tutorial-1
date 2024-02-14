@@ -3,14 +3,14 @@ plugins {
     jacoco
     id("org.springframework.boot") version "3.2.2"
     id("io.spring.dependency-management") version "1.1.4"
-	id "org.sonarqube" version "4.4.1.3373"
+	id("org.sonarqube") version "4.4.1.3373"
 }
 
 sonar {
   properties {
-    property "sonar.projectKey", "prasetyoadii_Tutorial-1"
-    property "sonar.organization", "prasetyoadii"
-    property "sonar.host.url", "https://sonarcloud.io"
+    property ("sonar.projectKey", "prasetyoadii_Tutorial-1")
+    property ("sonar.organization", "prasetyoadii")
+    property ("sonar.host.url", "https://sonarcloud.io")
   }
 }
 
