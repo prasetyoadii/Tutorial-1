@@ -97,16 +97,15 @@
 
 #### Reflection
 
-1. Saya Isu-isu yang saya perbaiki:
+1. Saya melihat isu isu berikut pada sonarcloud (code smell) dan memperbaikinya. Berikut adalah list isu tersebut:
    - Isu tabel tidak memiliki deskripsi<br>
-    Menambahkan elemen ```<caption>``` ke dalam HTML
-   - Field Injection
-    Pada kelas ProductCotroller dan Product service ubah field injection menjadi constructor injection
-
-2. Implementasi saat ini telah berhasil memenuhi konsep CI/CD dengan menggunakan GitHub Workflows. Setiap kali ada perubahan di-push atau di-pull request ke repository GitHub, alur kerja otomatis diaktifkan. Proses ini mencakup uji kode menggunakan test case dalam ci.yml, analisis kode oleh OSSF Scorecard menggunakan scorecard.yml, dan pemeriksaan kode menggunakan SonarCloud melalui sonarcloud.yml. Jika semua tahap uji dan analisis berhasil, perubahan kode akan digabungkan ke branch utama "main". Selanjutnya, terdapat langkah otomatis untuk melakukan deployment ke platform as a service (PaaS) Koyeb. Seiring dengan itu, terdapat pemeriksaan keamanan kode dengan menggunakan scorecard.yml. Dengan demikian, implementasi ini membentuk alur kerja otomatis yang menyelaraskan siklus pengembangan perangkat lunak (Software Development Life Cycle) secara lengkap, termasuk Continuous Integration dan Continuous Deployment.
-
-
-
-
+    Strategi : Menambahkan elemen ```<caption>``` ke dalam HTML
+   - Field Injection<br>
+   Strategi :  Pada kelas ProductCotroller dan Product service ubah field injection menjadi constructor injection
+   - Public modifier kelas test<br>
+   Strategi :  Menghilangkan modifier public pada semua kelas test
+   - Setidaknya menambahkan assertion pada testcse<br>
+    Strategi : Menambahkan assertion untuk method ```mainMethodDoesNotThrowException() ``` dan ```void contextLoads()``` pada `EshopApplicationTest.java`
 
 
+2. Untuk saat ini, implementasi berhasil memenuhi konsep CI/CD dengan menggunakan GitHub Workflows. Setiap kali ada perubahan di-push atau di-pull request ke repository GitHub, alur kerja otomatis diaktifkan. Proses ini mencakup uji kode menggunakan test case dalam `ci.yml`, analisis kode oleh OSSF Scorecard menggunakan scorecard.yml, dan code scanning dengan SonarCloud melalui `sonarcloud.yml`. setelah semua tahap berhasil, perubahan kode akan digabungkan ke branch utama. Selanjutnya, melakukan deployment ke platform as a service (PaaS) Koyeb secara otomatis. Setiap deployment, terdapat pemeriksaan keamanan kode dengan menggunakan `scorecard.yml`. Dengan demikian, implementasi ini membentuk alur kerja otomatis yang menyelaraskan siklus pengembangan perangkat lunak (Software Development Life Cycle) secara lengkap, termasuk CI/CD.
