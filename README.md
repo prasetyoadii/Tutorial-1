@@ -3,7 +3,9 @@
 **2206830246**</br>
 **ProLan A / DEE**</br>
 
-## Tutorial 1
+<details>
+<summary> Tutorial 1</summary>
+
 ### Exercise 1
 - **Implementasi Clean Code Principles**
   * Meaningfull Name </br>
@@ -68,8 +70,8 @@
   * Validasi </br>
    Belum terdapat validasi input saat create product dan edit product sehingga user bisa saja menginput kuantitas yang besarnya kurang dari 1 dan menginput string kosong
    * Secure Coding </br>
-    Belum mengimplementasikan secure coding sehingga masih ada potensi serangan eksternal dan keamanan data belum baik
-    
+    Belum mengimplementasikan secure coding sehingga masih ada potensi serangan eksternal dan keamanan data belum baik    
+
 ## Exercise 2
 - Kegunaan Unit Test<br>
   Dengan melakukan unit test, saya dapat memastikan bahwa setiap fitur seperti edit, delete, dan create berperilaku sesuai dengan yang diharapkan dan tidak mengalami kerusakan. Unit test juga harus melibatkan berbagai skenario yang berbeda termasuk uji positif dan negatif. Selain itu, unit test membantu dalam mendeteksi bug atau kesalahan lebih awal. 
@@ -89,6 +91,10 @@
     Inheritance berguna untuk mengatasi duplikasi kode karena memungkinkan kelas anak untuk mewarisi sifat kelas induk. Dengan menggunakan inheritance, kode yang sama atau serupa dapat ditempatkan di kelas induk, dan kelas anak dapat mewarisi fungsionalitas tersebut tanpa perlu menduplikasi kode.
     * Review and Refactoring: <br>
     Dalam proses review kode, tim pengembang mengidentifikasi dan mengatasi redundansi serta duplikasi kode fungsional test melalui diskusi dan pengamatan bersama. Review membantu mengenali potensi duplikasi. Selain itu, refactoring digunakan untuk membuat abstraksi yang lebih baik, mengurangi duplikasi tanpa mengorbankan fungsionalitas, dan memfasilitasi penempatan kode terduplikasi di lokasi yang sesuai, meningkatkan kebersihan dan konsistensi dalam pemeliharaan kode.
+</details>
+
+<details>
+<summary> Tutorial 2</summary>
 
 ## Tutorial 2
 [Link Website](https://eshop-prasetyoadii.koyeb.app/)
@@ -109,3 +115,17 @@
 
 
 2. Untuk saat ini, implementasi berhasil memenuhi konsep CI/CD dengan menggunakan GitHub Workflows. Setiap kali ada perubahan di-push atau di-pull request ke repository GitHub, alur kerja otomatis diaktifkan. Proses ini mencakup uji kode menggunakan test case dalam `ci.yml`, analisis kode oleh OSSF Scorecard menggunakan scorecard.yml, dan code scanning dengan SonarCloud melalui `sonarcloud.yml`. setelah semua tahap berhasil, perubahan kode akan digabungkan ke branch utama. Selanjutnya, melakukan deployment ke platform as a service (PaaS) Koyeb secara otomatis. Setiap deployment, terdapat pemeriksaan keamanan kode dengan menggunakan `scorecard.yml`. Dengan demikian, implementasi ini membentuk alur kerja otomatis yang menyelaraskan siklus pengembangan perangkat lunak (Software Development Life Cycle) secara lengkap, termasuk CI/CD.
+
+</details>
+
+## Tutorial 3
+1. **Explain what principles you apply to your project!** <br>
+     * SRP: Melakukan pemisahan file `CarController.java` yang tadinya terdapat pada `ProductController.java` karena setiap kelas memiliki fungsi yang berbeda. Sehingga setiap kelas dapat fokus pada tanggung jawabnya sendiri tanpa terjebak dalam keberagaman tanggung jawab yang tidak terkait.
+     * ISP: Memisahkan interface `CarService` dan `ProductService` karena kedua interface tersebut memiliki dua tanggung jawab yang berbeda. Sehingga `CarService` dapat berfokus pada operasi yang terkait dengan car, sementara `ProductService` dapat berfokus pada operasi yang terkait dengan produk. interface yang lebih kecil dan lebih spesifik memberikan fleksibilitas lebih besar. Misalnya, jika ada kelas yang hanya memerlukan fungsi dari `CarService`, kelas tersebut tidak perlu tahu tentang `ProductService`.
+     * DIP: Saya menggunakan antarmuka `CarService` daripada `CarServiceImpl` pada `CarController.java` untuk menghindari potensi kerusakan jika terjadi perubahan pada `CarServiceImpl`
+
+2.   **Explain the advantages of applying SOLID principles to your project with examples.** <br>
+   Dengan mengimplementasikan SOLID principle, Kode yang saya buat menjadi lebih modular, terstruktur, maintainable, bersih, dan readable. Prinsip-prinsip seperti Single Responsibility Principle (SRP) membantu memfokuskan setiap komponen pada satu tanggung jawab, meningkatkan keterbacaan dan pemeliharaan. Interface Segregation Principle (ISP) membantu dalam memisahkan antarmuka menjadi lebih spesifik sesuai dengan fungsionalitas yang diperlukan dan Dependency Inversion Principle (DIP) membantu mengelola ketergantungan dengan baik dan memastikan setiap komponen hanya bergantung pada fungsionalitas yang diperlukan. Hasilnya adalah kode yang tidak hanya efisien dalam implementasi fitur, tetapi juga mudah dipahami dan dikelola. Contohnya sudah saya berikan diatas. 
+3.   **Explain the disadvantages of not applying SOLID principles to your project with examples.** <br>
+   Jika saya tidak menerapkan prinsip SOLID kode menjadi rumit dan sulit dipahami. Bisa jadi suatu kelas dapat melakukan terlalu banyak tugas dan memiliki banyak tanggung jawab. Ini juga dapat menyebabkan kesulitan dalam pemeliharaan dan perubahan. Selain itu, kode tersebut bisa menjadi sulit untuk diuji dan kurang fleksibel untuk menangani perubahan atau penambahan fitur baru. Akhirnya, kode yang tidak mengikuti prinsip SOLID sering kali sulit untuk digunakan kembali dalam konteks lain. Secara keseluruhan, menerapkan prinsip SOLID dapat membantu Anda menghindari banyak masalah ini dan membuat kode Anda lebih bersih, lebih mudah dipahami, dan lebih mudah dipelihara. Salah satu contohnya, pelanggaran Single Responsibility Principle (SRP): SRP menyatakan bahwa setiap kelas harus memiliki satu dan hanya satu alasan untuk berubah. Jika CarController dan ProductController berada dalam satu kelas, kelas tersebut memiliki lebih dari satu alasan untuk berubah, yang melanggar SRP. Perubahan pada Car dapat mempengaruhi Product, dan sebaliknya. Ini dapat membuat pemeliharaan kode menjadi lebih sulit. Pengujian menjadi lebih sulit karena Anda harus menguji Car dan Product bersama-sama. Jika ada bug, akan lebih sulit untuk menentukan apakah itu berasal dari Car atau Product.
+
