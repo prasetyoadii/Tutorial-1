@@ -74,7 +74,7 @@ class PaymentByVoucherTest {
     @Test
     void testCreatePaymentVoucherFailed16Length() {
         Map<String, String> paymentDataVoucher = new HashMap<>();
-        paymentDataVoucher.put("voucherCode", "ESHOP697A71B273C");
+        paymentDataVoucher.put("voucherCode", "ESHOP697A71B273C69");
 
         assertThrows(IllegalArgumentException.class, ()-> { 
             new PaymentByVoucher("9266bc12-dbd9-4a06-bdcc-a02ea8d702d2",orders.get(1),
@@ -85,7 +85,7 @@ class PaymentByVoucherTest {
     @Test
     void testCreatePaymentVoucherFailedESHOPStart() {
         Map<String, String> paymentDataVoucher = new HashMap<>();
-        paymentDataVoucher.put("voucherCode", "ESHOP69727142731");
+        paymentDataVoucher.put("voucherCode", "EHALOSHOP69727142731");
 
         assertThrows(IllegalArgumentException.class, ()-> { 
             new PaymentByVoucher("9266bc12-dbd9-4a06-bdcc-a02ea8d702d2",orders.get(1),
@@ -96,7 +96,7 @@ class PaymentByVoucherTest {
     @Test
     void testCreatePaymentVoucherFailed8Numerical() {
         Map<String, String> paymentDataVoucher = new HashMap<>();
-        paymentDataVoucher.put("voucherCode", "ESHOP697A71B273C");
+        paymentDataVoucher.put("voucherCode", "ESHOP69AAAABAAAC");
 
         assertThrows(IllegalArgumentException.class, ()-> {
             new PaymentByVoucher("9266bc12-dbd9-4a06-bdcc-a02ea8d702d2",orders.get(1),
