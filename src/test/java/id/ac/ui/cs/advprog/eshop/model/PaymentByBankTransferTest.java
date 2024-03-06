@@ -1,16 +1,19 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
 import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
-
-import static org.junit.jupiter.api.Assertions.*;
-
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
 
 public class PaymentByBankTransferTest {
     List<Product> products;
@@ -50,11 +53,11 @@ public class PaymentByBankTransferTest {
         paymentDataBankTransfer.put("bankName", "BCA");
         paymentDataBankTransfer.put("referenceCode", "69707172");
 
-        Payment payment = new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f", orders.get(0), "BANK", paymentDataBankTransfer);
+        Payment payment = new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f", orders.get(0), PaymentMethod.BANK.getValue(), paymentDataBankTransfer);
         assertSame(orders.get(0), payment.getOrder());
         assertEquals(paymentDataBankTransfer, payment.getPaymentData());
         assertEquals("02657834-7df4-4ad4-b164-4bb6be61cf7f", payment.getId());
-        assertEquals("BANK", payment.getMethod());
+        assertEquals(PaymentMethod.BANK.getValue(), payment.getMethod());
     }
 
     @Test
@@ -63,10 +66,10 @@ public class PaymentByBankTransferTest {
         paymentDataBankTransfer.put("bankName", "BCA");
         paymentDataBankTransfer.put("referenceCode", "69707172");
 
-        PaymentByBankTransfer paymentBankTransfer = new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f",orders.get(0), "BANK", paymentDataBankTransfer, PaymentStatus.SUCCESS.getValue());
+        PaymentByBankTransfer paymentBankTransfer = new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f",orders.get(0), PaymentMethod.BANK.getValue(), paymentDataBankTransfer, PaymentStatus.SUCCESS.getValue());
         assertSame(orders.get(0), paymentBankTransfer.getOrder());
         assertEquals("02657834-7df4-4ad4-b164-4bb6be61cf7f", paymentBankTransfer.getId());
-        assertEquals("BANK", paymentBankTransfer.getMethod());
+        assertEquals(PaymentMethod.BANK.getValue(), paymentBankTransfer.getMethod());
         assertEquals(paymentDataBankTransfer, paymentBankTransfer.getPaymentData());
         assertEquals(PaymentStatus.SUCCESS.getValue(), paymentBankTransfer.getStatus());
     }
@@ -78,7 +81,7 @@ public class PaymentByBankTransferTest {
         paymentDataBankTransfer.put("referenceCode", "0123456789");
 
         assertThrows(IllegalArgumentException.class, ()-> { 
-            new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f", orders.get(1),"BANK", paymentDataBankTransfer);
+            new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f", orders.get(1),PaymentMethod.BANK.getValue(), paymentDataBankTransfer);
         });
     }
 
@@ -89,7 +92,7 @@ public class PaymentByBankTransferTest {
         paymentDataBankTransfer.put("referenceCode", "");
 
         assertThrows(IllegalArgumentException.class, ()-> { 
-            new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f", orders.get(1),"BANK", paymentDataBankTransfer);
+            new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f", orders.get(1),PaymentMethod.BANK.getValue(), paymentDataBankTransfer);
         });
     }
 }
