@@ -245,5 +245,4 @@ class PaymentTest {
         });
         paymentData.clear();
     }  
-
 }
