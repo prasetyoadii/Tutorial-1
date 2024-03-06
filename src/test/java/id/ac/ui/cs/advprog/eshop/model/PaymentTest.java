@@ -2,7 +2,6 @@ package id.ac.ui.cs.advprog.eshop.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -66,8 +65,8 @@ class PaymentTest {
         paymentData.put("voucherCode", "ESHOP697A71B273C");
 
         Payment payment = new Payment("3150295e-3448-414e-88a2-0457016ff9bd", PaymentMethod.VOUCHER.getValue(), order, paymentData);
+        assertSame(payment.getOrder(), order);
         assertSame(paymentData, payment.getPaymentData());
-        assertNull(payment.getPaymentData());
         assertEquals("3150295e-3448-414e-88a2-0457016ff9bd", payment.getId());
         assertEquals(PaymentMethod.VOUCHER.getValue(), payment.getMethod());
         assertEquals(PaymentStatus.PENDING.getValue(), payment.getStatus());
@@ -79,8 +78,8 @@ class PaymentTest {
         paymentData.put("voucherCode", "ESHOP697A71B273C");
 
         Payment payment = new Payment("3150295e-3448-414e-88a2-0457016ff9bd", PaymentMethod.VOUCHER.getValue(), order, paymentData, PaymentStatus.SUCCESS.getValue());
+        assertSame(payment.getOrder(), order);
         assertSame(paymentData, payment.getPaymentData());
-        assertNull(payment.getPaymentData());
         assertEquals("3150295e-3448-414e-88a2-0457016ff9bd", payment.getId());
         assertEquals(PaymentMethod.VOUCHER.getValue(), payment.getMethod());
         assertEquals(PaymentStatus.SUCCESS.getValue(), payment.getStatus());
