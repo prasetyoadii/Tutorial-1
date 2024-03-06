@@ -53,7 +53,7 @@ class PaymentByVoucherTest {
         Payment payment = new PaymentByVoucher("42b160ec-0f98-4f18-b950-cbd22872f7af", orders.get(1), PaymentMethod.VOUCHER.getValue(), paymentDataVoucher);
         assertSame(orders.get(1), payment.getOrder());
         assertEquals("42b160ec-0f98-4f18-b950-cbd22872f7af", payment.getId());
-        assertEquals("VOUCHER", payment.getMethod());
+        assertEquals(PaymentMethod.VOUCHER.getValue(), payment.getMethod());
         assertEquals(paymentDataVoucher, payment.getPaymentData());
     }
 

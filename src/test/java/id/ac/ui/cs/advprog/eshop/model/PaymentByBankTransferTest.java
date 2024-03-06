@@ -37,7 +37,7 @@ public class PaymentByBankTransferTest {
             products, 1708560000L, "Bambang Sugeni");
         orders.add(order1);
         Order order2 = new Order("7f9e15bb-4b15-42f4-aebc-c3af385fb078",
-            products, 1708570000L, "Tatang Sutanto");
+            products, 1708570000L, "Austin Tantingto");
         orders.add(order2);
         Order order3 = new Order("e334ef40-9eff-4da8-9487-8ee697ecbf1e",
             products, 1708570000L, "Bambang Sugeni");
@@ -47,7 +47,7 @@ public class PaymentByBankTransferTest {
     @Test
     void testCreatePaymentByBankTransferSuccessful() {
         Map<String, String> paymentDataBankTransfer = new HashMap<>();
-        paymentDataBankTransfer.put("bankName", "FLEECA");
+        paymentDataBankTransfer.put("bankName", "BCA");
         paymentDataBankTransfer.put("referenceCode", "69707172");
 
         Payment payment = new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f", orders.get(0), "BANK", paymentDataBankTransfer);
@@ -60,7 +60,7 @@ public class PaymentByBankTransferTest {
     @Test
     void testCreatePaymentBankTransferWithStatus() {
         Map<String, String> paymentDataBankTransfer = new HashMap<>();
-        paymentDataBankTransfer.put("bankName", "FLEECA");
+        paymentDataBankTransfer.put("bankName", "BCA");
         paymentDataBankTransfer.put("referenceCode", "69707172");
 
         PaymentByBankTransfer paymentBankTransfer = new PaymentByBankTransfer("02657834-7df4-4ad4-b164-4bb6be61cf7f",orders.get(0), "BANK", paymentDataBankTransfer, PaymentStatus.SUCCESS.getValue());
