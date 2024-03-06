@@ -1,10 +1,13 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import id.ac.ui.cs.advprog.eshop.enums.PaymentMethod;
 import id.ac.ui.cs.advprog.eshop.enums.PaymentStatus;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -45,6 +48,18 @@ class PaymentTest {
             new Payment("3150295e-3448-414e-88a2-0457016ff9bd", "", null, paymentData);
         });
     }
+
+    @Test
+    void testContainsWithValidParam() {
+        assertTrue(PaymentMethod.contains("VOUCHER_CODE"));
+        assertTrue(PaymentMethod.contains("BANK_TRANSFER"));
+    }
+
+    @Test
+    void testContainsWithInvalidParam() {
+        assertFalse(PaymentMethod.contains("INVALID_CODE"));
+    }
+
 
     @Test
     void testCreatePaymentVoucherPendingStatus() {
