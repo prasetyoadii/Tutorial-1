@@ -32,22 +32,27 @@ public class Payment {
             throw new IllegalArgumentException(
                 "Unable to assign payment data specific to a method when the payment method is not specified"
             );
+        } 
+        else {
+            this.paymentData = null;
         }
-        this.paymentData = null;
     }
 
     private void setOrder(Order order) {
         if (order == null) {
             throw new IllegalArgumentException("Order cannot be null");
         }
-        this.order = order;
+        else {
+            this.order = order;
+        }
     }
 
     public void setStatus(String status) {
-        if (!PaymentStatus.contains(status)) {
+        if (PaymentStatus.contains(status)) {
+            this.status = status;
+        } else {
             throw new IllegalArgumentException("Invalid payment status");
         }
-        this.status = status;
     }
 
     
